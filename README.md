@@ -8,4 +8,7 @@ You have been asked to develop a trivia web application with the following compo
 - The final page needs to display the top 5 participants results
 
 ### Required technologies
-You must develop this web application using HTML, CSS and Typescript. You have to use a CSS framework (e.g., bootstrap, tailwind, etc.) and the typescript files have to be compiled to JavaScript
+- You must develop this web application using HTML, CSS and Typescript
+- You have to use a CSS framework (e.g., bootstrap, tailwind, etc.)
+- The typescript files have to be compiled to JavaScript
+- You have to get the questions from an API (The link will be provided later)
