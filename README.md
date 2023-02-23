@@ -12,4 +12,4 @@ You have been asked to develop a trivia web application with the following compo
 - You have to use a CSS framework (e.g., bootstrap, tailwind, etc.)
 - The typescript files have to be compiled to JavaScript
 - You have to get the questions from the following API (https://usc-trivia.azure-api.net/trivia?subscription-key=14f11421203e4f67a099919a3fd941c6)
-- For development and testing please use the JSON object provided in the data folder as the API is a free version and has a maximum number of calls per month
+- For development and testing please use the testQuestions JSON jile as the API is a free version and has a maximum number of calls per month. Once you have your code working replace it with a call to the API
