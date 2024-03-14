@@ -1,0 +1,152 @@
+[
+    {
+      "question": "Which company manufactures the Mustang?",
+      "options": {
+        "A": "Chevrolet",
+        "B": "Ford",
+        "C": "Dodge",
+        "D": "Toyota"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "What does SUV stand for?",
+      "options": {
+        "A": "Sport Utility Vehicle",
+        "B": "Super Utility Vehicle",
+        "C": "Speedy Utility Vehicle",
+        "D": "Safe Utility Vehicle"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Which country is BMW from?",
+      "options": {
+        "A": "United States",
+        "B": "Germany",
+        "C": "Japan",
+        "D": "Italy"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "What does the 'MPG' stand for in car terminology?",
+      "options": {
+        "A": "Miles Per Gallon",
+        "B": "Meters Per Gallon",
+        "C": "Miles Per Gram",
+        "D": "Meters Per Gram"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Which car brand uses the slogan 'Zoom Zoom'?",
+      "options": {
+        "A": "Honda",
+        "B": "Mazda",
+        "C": "Hyundai",
+        "D": "Subaru"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which company produces the Model S?",
+      "options": {
+        "A": "Nissan",
+        "B": "Tesla",
+        "C": "Ford",
+        "D": "Chevrolet"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which car brand has a logo that features four interlocked rings?",
+      "options": {
+        "A": "Audi",
+        "B": "Mercedes-Benz",
+        "C": "BMW",
+        "D": "Volkswagen"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "What is the name of Volkswagen's famous beetle-shaped car?",
+      "options": {
+        "A": "Bug",
+        "B": "Beetle",
+        "C": "Bumblebee",
+        "D": "Ladybug"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which car brand uses a prancing horse as its logo?",
+      "options": {
+        "A": "Porsche",
+        "B": "Ferrari",
+        "C": "Lamborghini",
+        "D": "Maserati"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "What does the term 'hybrid' mean in car terminology?",
+      "options": {
+        "A": "A car that can use both petrol and diesel fuel",
+        "B": "A car that can operate with both an internal combustion engine and an electric motor",
+        "C": "A car that can transform into a boat",
+        "D": "A car that can operate on both land and air"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which car company was originally founded in Japan?",
+      "options": {
+        "A": "Toyota",
+        "B": "Hyundai",
+        "C": "Ferrari",
+        "D": "Mercedes-Benz"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "What does the acronym ABS stand for in car terminology?",
+      "options": {
+        "A": "Automatic Brake System",
+        "B": "Anti-lock Braking System",
+        "C": "Automated Braking System",
+        "D": "Anti-brake System"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which car brand has a logo that features a silver star?",
+      "options": {
+        "A": "BMW",
+        "B": "Audi",
+        "C": "Mercedes-Benz",
+        "D": "Lexus"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "What is the name of the luxury car division of Toyota?",
+      "options": {
+        "A": "Lexus",
+        "B": "Infiniti",
+        "C": "Acura",
+        "D": "Cadillac"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Which car company produces the Corvette?",
+      "options": {
+        "A": "Ford",
+        "B": "Chevrolet",
+        "C": "Dodge",
+        "D": "Toyota"
+      },
+      "answer": "B"
+    }
+  ]

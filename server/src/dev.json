@@ -1,0 +1,142 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "options": {
+      "A": "Hyperlinks and Text Markup Language",
+      "B": "Hyper Text Markup Language",
+      "C": "Home Tool Markup Language",
+      "D": "Hyper Tool Markup Language"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which is not a JavaScript Framework?",
+    "options": {
+      "A": "Python Script",
+      "B": "JQuery",
+      "C": "Django",
+      "D": "NodeJS"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "How do you insert a comment in a CSS file?",
+    "options": {
+      "A": "// this is a comment",
+      "B": "/* this is a comment */",
+      "C": "<!-- this is a comment -->",
+      "D": "' this is a comment"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which HTML attribute is used to define inline styles?",
+    "options": {
+      "A": "font",
+      "B": "class",
+      "C": "style",
+      "D": "styles"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which is the correct CSS syntax?",
+    "options": {
+      "A": "body:color=black;",
+      "B": "{body:color=black;}",
+      "C": "body {color: black;}",
+      "D": "{body;color:black;}"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which property is used to change the background color?",
+    "options": {
+      "A": "color",
+      "B": "bgcolor",
+      "C": "background-color",
+      "D": "bg-color"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "How can you make a numbered list?",
+    "options": {
+      "A": "<ol>",
+      "B": "<dl>",
+      "C": "<list>",
+      "D": "<ul>"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Which HTML tag is used to define an internal style sheet?",
+    "options": {
+      "A": "<css>",
+      "B": "<style>",
+      "C": "<script>",
+      "D": "<link>"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which is the correct JavaScript syntax to change the content of the HTML element below?",
+    "options": {
+      "A": "document.getElementByName('p').innerHTML = 'Hello World!';",
+      "B": "document.getElementById('demo').innerHTML = 'Hello World!';",
+      "C": "#demo.innerHTML = 'Hello World!';",
+      "D": "document.getElement('p').innerHTML = 'Hello World!';"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which JavaScript method is used to filter the elements of an array?",
+    "options": {
+      "A": "filter()",
+      "B": "find()",
+      "C": "forEach()",
+      "D": "map()"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What does the 'DOMContentLoaded' event signify in JavaScript?",
+    "options": {
+      "A": "The user has clicked on the HTML document",
+      "B": "The entire HTML document has been completely loaded and parsed",
+      "C": "The CSS for the page has been loaded",
+      "D": "The JavaScript for the page has been loaded"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What does the HTTP status code '404' indicate?",
+    "options": {
+      "A": "Unauthorized",
+      "B": "Forbidden",
+      "C": "Not Found",
+      "D": "Internal Server Error"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the purpose of the 'alt' attribute in an HTML 'img' element?",
+    "options": {
+      "A": "To provide a tooltip when the user hovers over the image",
+      "B": "To provide a text description of the image for screen readers or when the image cannot be displayed",
+      "C": "To specify the image size",
+      "D": "To link the image to another document"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the correct way to add a comment in a JavaScript?",
+    "options": {
+      "A": "<!--This is a comment-->",
+      "B": "//This is a comment",
+      "C": "/*This is a comment*/",
+      "D": "Both B and C"
+    },
+    "answer": "D"
+  }
+]
