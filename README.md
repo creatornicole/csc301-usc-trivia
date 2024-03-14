@@ -17,10 +17,6 @@ You have been asked to develop a trivia web application with the following compo
 - You must update `README.md` with documentation about your app eg. how to run your app.
 
 
-- For development and testing please use the testQuestions JSON file as the API is a free version and has a maximum number of calls per month. Once you have your code working replace it with a call to the API
-
-
-
 ## Quiz API
 
     NOTE: You will not be graded on any work done to the server. This is only a utility to provide an endpoint to retrive data from.
