@@ -27,26 +27,29 @@
 </head>
 
 <body>
-    <!-- quiz style based on Bootstrap cards -->
-    <div class="card text-center w-50" style="margin: 15rem auto;">
-        <div class="card-header">
-            <h5>
-                Trivia Web Application
-            </h5>
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="form-group w-50" style="margin: auto;">
-                    <div>
-                        <label for="inputName">Please enter your name:</label>
-                        <input type="text" class="form-control" id="inputName" />
+    <div class="text-center w-50" style="margin: 10em auto;">
+        <!-- quiz style based on Bootstrap cards -->
+        <div class="card">
+            <div class="card-header">
+                <h5>
+                    Trivia Web Application
+                </h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div id="quiz" class="form-group w-50" style="margin: auto;">
+                        <div>
+                            <label for="inputName">Please enter your name:</label>
+                            <input type="text" class="form-control" id="inputName" required />
+                        </div>
+                        <!-- set type to button to default submit behavior of button in form -->
+                        <button type="button" class="btn m-2 next-btn" onclick="startQuiz()">Start Quiz</button>
                     </div>
-                    <button class="btn m-2 next-btn">Start Quiz</button>
-                </div>
-            </form>
-        </div>
-        <div class="card-footer text-muted">
-            Created by Nicole Gottschall at <a href="https://www.usc.edu.au/">University of the Sunshine Coast Australia</a>
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                Created by Nicole Gottschall at <a href="https://www.usc.edu.au/">University of the Sunshine Coast Australia</a>
+            </div>
         </div>
     </div>
 
