@@ -36,14 +36,26 @@
                 </h5>
             </div>
             <div class="card-body">
-                <form>
+                <form id="quizForm" class="needs-validation" novalidate>
                     <div id="quiz" class="form-group w-50" style="margin: auto;">
-                        <div>
-                            <label for="inputName">Please enter your name:</label>
-                            <input type="text" class="form-control" id="inputName" required />
+                        <!-- input username -->
+                        <label for="inputName" class="form-label">Please enter your name:</label>
+                        <input type="text" class="form-control" id="inputName" required />
+                        <div class="invalid-feedback">
+                            Please enter an username.
                         </div>
-                        <!-- set type to button to default submit behavior of button in form -->
-                        <button type="button" class="btn m-2 next-btn" onclick="startQuiz()">Start Quiz</button>
+                        <!-- select quiz type -->
+                        <label for="quizType" class="form-label">Choose the Quiz:</label>
+                        <select class="form-select" id="quizType" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option value="dev">Development</option>
+                            <option value="cars">Cars</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please choose a quiz type.
+                        </div>
+                        <!-- set type to button to prevent default submit behavior of button in form -->
+                        <button type="submit" class="btn m-2 next-btn">Start Quiz</button>
                     </div>
                 </form>
             </div>

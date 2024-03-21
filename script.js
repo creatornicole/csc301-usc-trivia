@@ -19,6 +19,28 @@ let score = 0;
 let username; // to store username from start/home page to display on score/final page
 
 /******************************** FUNCTIONS *****************************/
+// Validate Home Page Form
+(() => {
+    // fetch the form
+    const form = document.getElementById("quizForm");
+
+    // add event listener to the form
+    form.addEventListener("submit", event => {
+        // prevent default form submission
+        event.preventDefault();
+        // stop event propagation
+        event.stopPropagation();
+
+        // start quiz if form was validated
+        if(form.checkValidity()) {
+            startQuiz();
+        }
+        
+        // show validation styles with bootstrap class
+        form.classList.add("was-validated");
+    }, false);
+})();
+
 // Start Quiz
 function startQuiz() {
     // reset variables
@@ -26,6 +48,9 @@ function startQuiz() {
     score = 0;
     // get username
     username = document.getElementById("inputName").value;
+    // get quiz type
+    let quizType = document.getElementById("quizType").value;
+    console.log(quizType);
 
     // show question
     showQuestion();
