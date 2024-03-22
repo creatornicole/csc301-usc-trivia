@@ -7,42 +7,37 @@
  * limit (optional) - value can be an integer. Adds a cap to the amount 
  *                    of results returned by the API.
  */
-axios.get("http://127.0.0.1:3055/quiz?theme=dev").then(res => {
-    quiz = res;
-});
+
+function fetchQuiz(quizType) {
+    // use Promise to await value assignment
+    return new Promise((resolve, reject) => {
+        // Make the Axios request
+        axios.get(`http://127.0.0.1:3055/quiz?theme=${quizType}`)
+            .then(res => {
+                // resolve the promise with the response data
+                resolve(res.data);
+            })
+            .catch(err => {
+                // reject the promise with an error
+                reject(err);
+            });
+    });
+}
 
 /******************************** VARIABLES *****************************/ 
 const quizCardComponent = document.getElementById("quiz"); // div of quiz content
+const quizForm = document.getElementById("quizForm");
 let quiz; // store quiz inside this variable, get from server via axios
 let currentQuestionIndex = 0;
 let score = 0;
 let username; // to store username from start/home page to display on score/final page
 
+/******************************** EVENT LISTENER ************************/
+quizForm.addEventListener("submit", validateStartPageForm);
+
 /******************************** FUNCTIONS *****************************/
-// Validate Home Page Form
-(() => {
-    // fetch the form
-    const form = document.getElementById("quizForm");
-
-    // add event listener to the form
-    form.addEventListener("submit", event => {
-        // prevent default form submission
-        event.preventDefault();
-        // stop event propagation
-        event.stopPropagation();
-
-        // start quiz if form was validated
-        if(form.checkValidity()) {
-            startQuiz();
-        }
-        
-        // show validation styles with bootstrap class
-        form.classList.add("was-validated");
-    }, false);
-})();
-
 // Start Quiz
-function startQuiz() {
+async function startQuiz() {
     // reset variables
     currentQuestionIndex = 0;
     score = 0;
@@ -50,18 +45,21 @@ function startQuiz() {
     username = document.getElementById("inputName").value;
     // get quiz type
     let quizType = document.getElementById("quizType").value;
-    console.log(quizType);
-
-    // show question
-    showQuestion();
+    try {
+        // get quiz data according to chosen quiz type
+        quiz = await fetchQuiz(quizType);
+        // show first question once quiz data is fetched
+        showQuestion();
+    } catch(err) {
+        console.error("Error fetching quiz:", err);
+    }
 }
-
 
 // Show next Question of Quiz
 function showQuestion() {
     resetState();
     // get all the data form the quiz variable to display the current question
-    let currentQuestion = quiz.data[currentQuestionIndex];
+    let currentQuestion = quiz[currentQuestionIndex];
     // get current question, possible answers and correct question
     let question = currentQuestion.question;
     let options = currentQuestion.options; // array of objects
@@ -148,7 +146,7 @@ function handleNextButton() {
     checkRightAnswer();
     // show next question
     currentQuestionIndex++;
-    if(currentQuestionIndex < quiz.data.length) {
+    if(currentQuestionIndex < quiz.length) {
         showQuestion()
     } else {
         showFinalPage();
@@ -164,14 +162,14 @@ function showFinalPage() {
     paragraph.innerHTML = "You scored";
 
     const scoreParagraph = document.createElement("p");
-    scoreParagraph.innerHTML = `${score} / ${quiz.data.length}`;
+    scoreParagraph.innerHTML = `${score} / ${quiz.length}`;
 
     const restartBtn = document.createElement("button");
     restartBtn.innerHTML = "Restart Quiz";
     // add bootstrap classes
     restartBtn.classList.add("btn", "btn-primary", "m-2");
     // add event listener to restart quiz
-    restartBtn.addEventListener("click", startQuiz);
+    restartBtn.addEventListener("click", showStartPage);
 
     // append all the elements to the card component
     quizCardComponent.appendChild(headline);
@@ -187,7 +185,7 @@ function checkRightAnswer() {
         // option that has class 'active' is selected answer/option
         if(option.classList.contains("active")) {
             // get correct answer from dataset
-            let correctAnswer = quiz.data[currentQuestionIndex].answer;
+            let correctAnswer = quiz[currentQuestionIndex].answer;
             // get first letter to determine chosen option
             let chosenOption = option.textContent.charAt(0);
             // if selected option is right increment score
@@ -199,4 +197,85 @@ function checkRightAnswer() {
     });
 }
 
+function showStartPage() {
+    resetState();
+    // add input username label
+    let inputNameLabel = document.createElement("label");
+    inputNameLabel.setAttribute("for", "inputName");
+    inputNameLabel.classList.add("form-label"); // bootstrap class
+    inputNameLabel.innerHTML = "Please enter your name:";
+    // add input username
+    let inputName = document.createElement("input");
+    inputName.setAttribute("type", "text");
+    inputName.setAttribute("id", "inputName");
+    inputName.classList.add("form-control");
+    inputName.required = true;
+    // add input username validation feedback
+    let inputNameVal = document.createElement("div");
+    inputNameVal.classList.add("invalid-feedback"); // bootstrap class
+    inputNameVal.innerHTML = "Please enter your name.";
 
+    // add quiz type selection label
+    let selectQuizLabel = document.createElement("label");
+    selectQuizLabel.setAttribute("for", "quizType");
+    selectQuizLabel.classList.add("form-label"); // bootstrap class
+    selectQuizLabel.innerHTML = "Choose the Quiz:";
+    // add quiz type selection
+    let selectQuiz = document.createElement("select");
+    selectQuiz.setAttribute("id", "quizType");
+    selectQuiz.classList.add("form-select"); // bootstrap class
+    selectQuiz.required = true;
+
+    // add options
+    let defaultOption = document.createElement("option");
+    defaultOption.setAttribute("value", "");
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    defaultOption.innerHTML = "Choose...";
+
+    let devOption = document.createElement("option");
+    devOption.setAttribute("value", "dev");
+    devOption.innerHTML = "Development";
+
+    let carsOption = document.createElement("option");
+    carsOption.setAttribute("value", "cars");
+    carsOption.innerHTML = "Cars";
+    // append options to quiz type selection
+    selectQuiz.appendChild(defaultOption);
+    selectQuiz.appendChild(devOption);
+    selectQuiz.appendChild(carsOption);
+
+    // add quiz type selection validation feedback
+    let selectQuizVal = document.createElement("div");
+    selectQuizVal.classList.add("invalid-feedback"); // bootstrap class
+    selectQuizVal.innerHTML = "Please choose a quiz type.";
+
+    // add submit button
+    let submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.classList.add("btn", "m-2", "next-btn"); // bootstrap and custom classes
+    submitBtn.innerHTML = "Start Quiz";
+
+    // append all the elements to the card component
+    quizCardComponent.appendChild(inputNameLabel);
+    quizCardComponent.appendChild(inputName);
+    quizCardComponent.appendChild(inputNameVal);
+    quizCardComponent.appendChild(selectQuizLabel);
+    quizCardComponent.appendChild(selectQuiz);
+    quizCardComponent.appendChild(selectQuizVal);
+    quizCardComponent.appendChild(submitBtn);
+}
+
+// Validate Home Page Form
+function validateStartPageForm(e) {
+    // prevent default form submission
+    e.preventDefault();
+    // stop event propagation
+    e.stopPropagation();
+    // show validation styles with bootstrap class
+    quizForm.classList.add("was-validated");
+    // start quiz if form was validated
+    if(quizForm.checkValidity()) {
+        startQuiz();
+    }
+}
