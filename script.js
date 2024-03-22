@@ -27,10 +27,17 @@ function fetchQuiz(quizType) {
 /******************************** VARIABLES *****************************/ 
 const quizCardComponent = document.getElementById("quiz"); // div of quiz content
 const quizForm = document.getElementById("quizForm");
+const cardHeadline = document.getElementById("card-headline");
+let timerElement;
+let timerId;
 let quiz; // store quiz inside this variable, get from server via axios
 let currentQuestionIndex = 0;
 let score = 0;
 let username; // to store username from start/home page to display on score/final page
+
+// timer variables
+let minutes = 0;
+let seconds = 0;
 
 /******************************** EVENT LISTENER ************************/
 quizForm.addEventListener("submit", validateStartPageForm);
@@ -53,6 +60,25 @@ async function startQuiz() {
     } catch(err) {
         console.error("Error fetching quiz:", err);
     }
+
+    timerElement = document.getElementById("timer");
+    timerId = setInterval(
+        clockTick,
+        1000
+    );
+}
+
+function clockTick() {
+    seconds++;
+    if(seconds % 60 == 0) {
+        minutes++;
+        seconds = 0;
+    }
+    // convert minutes and seconds to strings with leading zeros for display
+    let displayMin = (minutes < 10) ? `0${minutes}` : minutes;
+    let displaySec = (seconds < 10) ? `0${seconds}` : seconds;
+    //update timer display
+    timerElement.innerHTML = `${displayMin}:${displaySec}`;
 }
 
 // Show next Question of Quiz
@@ -63,7 +89,8 @@ function showQuestion() {
     // get current question, possible answers and correct question
     let question = currentQuestion.question;
     let options = currentQuestion.options; // array of objects
-    // let correctAnswer = currentQuestion.answer;
+    // manipulate headline to show progress and timer
+    manipulateHeadlineElement();
     // fill Quiz Card Component with new elements
     // question element
     createQuestionElement(question);
@@ -82,6 +109,17 @@ function resetState() {
     while(quizCardComponent.firstChild) {
         quizCardComponent.removeChild(quizCardComponent.firstChild);
     }
+}
+
+// Manipulate HTML Element to Show Progress and Timer as Card Headline
+function manipulateHeadlineElement() {
+    timerElement = document.createElement("span");
+    timerElement.setAttribute("id", "timer");
+    timerElement.innerHTML = ""
+
+    cardHeadline.innerHTML = `${currentQuestionIndex+1}/${quiz.length}, `;
+
+    cardHeadline.appendChild(timerElement);
 }
 
 // Create HTML Element to Show Question
@@ -176,6 +214,12 @@ function showFinalPage() {
     quizCardComponent.appendChild(paragraph);
     quizCardComponent.appendChild(scoreParagraph);
     quizCardComponent.appendChild(restartBtn);
+
+    // stop timer
+    let displayMin = (minutes < 10) ? `0${minutes}` : minutes;
+    let displaySec = (seconds < 10) ? `0${seconds}` : seconds;
+    timerElement.innerHTML = `${displayMin}:${displaySec}`;
+    clearInterval(timerId);
 }
 
 // Checks if user selected correct option, if yes: increment score
@@ -199,45 +243,47 @@ function checkRightAnswer() {
 
 function showStartPage() {
     resetState();
+    // manipulate card headline
+    cardHeadline.innerHTML = "Trivia Web Application";
     // add input username label
-    let inputNameLabel = document.createElement("label");
+    const inputNameLabel = document.createElement("label");
     inputNameLabel.setAttribute("for", "inputName");
     inputNameLabel.classList.add("form-label"); // bootstrap class
     inputNameLabel.innerHTML = "Please enter your name:";
     // add input username
-    let inputName = document.createElement("input");
+    const inputName = document.createElement("input");
     inputName.setAttribute("type", "text");
     inputName.setAttribute("id", "inputName");
     inputName.classList.add("form-control");
     inputName.required = true;
     // add input username validation feedback
-    let inputNameVal = document.createElement("div");
+    const inputNameVal = document.createElement("div");
     inputNameVal.classList.add("invalid-feedback"); // bootstrap class
     inputNameVal.innerHTML = "Please enter your name.";
 
     // add quiz type selection label
-    let selectQuizLabel = document.createElement("label");
+    const selectQuizLabel = document.createElement("label");
     selectQuizLabel.setAttribute("for", "quizType");
     selectQuizLabel.classList.add("form-label"); // bootstrap class
     selectQuizLabel.innerHTML = "Choose the Quiz:";
     // add quiz type selection
-    let selectQuiz = document.createElement("select");
+    const selectQuiz = document.createElement("select");
     selectQuiz.setAttribute("id", "quizType");
     selectQuiz.classList.add("form-select"); // bootstrap class
     selectQuiz.required = true;
 
     // add options
-    let defaultOption = document.createElement("option");
+    const defaultOption = document.createElement("option");
     defaultOption.setAttribute("value", "");
     defaultOption.selected = true;
     defaultOption.disabled = true;
     defaultOption.innerHTML = "Choose...";
 
-    let devOption = document.createElement("option");
+    const devOption = document.createElement("option");
     devOption.setAttribute("value", "dev");
     devOption.innerHTML = "Development";
 
-    let carsOption = document.createElement("option");
+    const carsOption = document.createElement("option");
     carsOption.setAttribute("value", "cars");
     carsOption.innerHTML = "Cars";
     // append options to quiz type selection
@@ -246,12 +292,12 @@ function showStartPage() {
     selectQuiz.appendChild(carsOption);
 
     // add quiz type selection validation feedback
-    let selectQuizVal = document.createElement("div");
+    const selectQuizVal = document.createElement("div");
     selectQuizVal.classList.add("invalid-feedback"); // bootstrap class
     selectQuizVal.innerHTML = "Please choose a quiz type.";
 
     // add submit button
-    let submitBtn = document.createElement("button");
+    const submitBtn = document.createElement("button");
     submitBtn.setAttribute("type", "submit");
     submitBtn.classList.add("btn", "m-2", "next-btn"); // bootstrap and custom classes
     submitBtn.innerHTML = "Start Quiz";
