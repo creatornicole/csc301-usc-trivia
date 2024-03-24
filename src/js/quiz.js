@@ -79,14 +79,25 @@ class Quiz {
     showQuestion() {
         // show question
         document.getElementById("question").innerHTML = this.data[this.currentQuestionIndex].question;
-        // show options
-        document.getElementById("option1").innerHTML = this.data[this.currentQuestionIndex].options.A;
-        document.getElementById("option2").innerHTML = this.data[this.currentQuestionIndex].options.B;
-        document.getElementById("option3").innerHTML = this.data[this.currentQuestionIndex].options.C;
-        document.getElementById("option4").innerHTML = this.data[this.currentQuestionIndex].options.D;
+        // get options
+        let option1 = this.data[this.currentQuestionIndex].options.A;
+        let option2 = this.data[this.currentQuestionIndex].options.B;
+        let option3 = this.data[this.currentQuestionIndex].options.C;
+        let option4 = this.data[this.currentQuestionIndex].options.D;
+        // show options (replaceAll escapes html code to display as plain text)
+        document.getElementById("option1").innerHTML = option1.replaceAll("<", "&lt;");
+        document.getElementById("option2").innerHTML = option2.replaceAll("<", "&lt;");
+        document.getElementById("option3").innerHTML = option3.replaceAll("<", "&lt;");
+        document.getElementById("option4").innerHTML = option4.replaceAll("<", "&lt;");
+
         // update progress bar
         let progressBar = document.getElementById("numQuestion");
         manipulationObj.updateProgressBar(this.currentQuestionIndex+1, this.data.length, progressBar);
+
+        console.log(this.data[this.currentQuestionIndex].options.A);
+        console.log(this.data[this.currentQuestionIndex].options.B);
+        console.log(this.data[this.currentQuestionIndex].options.C);
+        console.log(this.data[this.currentQuestionIndex].options.D);
     }
 
     /**
