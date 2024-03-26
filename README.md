@@ -1,6 +1,46 @@
 # CSC301-2024-Assignment1
 CSC301 2024 Assignment 1 - Front-end development
 
+## Usage description
+1. Start server endpoint to get questions by running command npm start inside /server
+2. Access web page with using parcel bundler by running command npx parcel src/index.html inside / of project and open http://localhost:1234/ in browser
+
+## Reflective Report
+Once I understood the task and became aware of the requirements, Assessment 1 was a good balance of what I already knew and what was new to me.
+
+| What I already knew                                                                                                              | Reason for knowing         |
+|----------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| Principles of object-oriented programming                                                                                        | Previous studies           |
+| HTML, CSS/Bootstrap                                                                                                              | Programmed websites before |
+| JavaScript Scripts with low complexity and without the implementation of classes and basic knowledge of the programming language | Programmed websites before |
+
+With this level of knowledge, I first focused on getting the website up and running with HTML, CSS and JavaScript. In the first step, I created a single file, which I filled with functions step by step. Only after this implementation worked did I concentrate on the principles of object-oriented programming, meaning the implementation of classes, their functions and their interactions with each other. However, for future projects I intend to try creating an at least rough class diagram before starting the development in order to save myself the extra work and write structured code with a comprehensible structure right from the start.\
+
+In addition to that, the DOM manipulation between the start page, the actual quiz and the final page was challenging for me. I'm still not sure whether I managed to implement the manipulation as an experienced JavaScript developer would have done. In the end I decided to add a basic HTML structure inside the index.html and customize everything else with JavaScript. I made this decision so that you don't have to switch between files when you want to fix errors or make adjustments.\
+
+More about my challenges:\
+
+| Challenge/ Problem | Description + Steps/Approach to Solving them |
+|--------------------|----------------------------------------------|
+| Implementation of DOM manipulation to change home page to displaying questions and these into the final page | I developed different ideas and implemented the one that made the most sense to me\
+Implementation 1: add html elements of home page, question view and final page to index.html and show them accordingly\
+Implementation 2 (the one that I have implemented in the final version): add basic structure and add/manipulate everything else using JavaScript\
+Problem Solved?
+Yes, but there is probably a more (ressource-)efficient way to implement it |
+| Class creation and interaction | Although I have been familiar with the principles of object-oriented programming for several years now, I still find it difficult to work out directly from the task which classes I need to implement. I solved the problem by creating a single script with all the functions and assigning them to classes in the next step.\
+Problem Solved?
+Yes, at least for this project\
+Room for improvement for future projects |
+| AJAX Request | Making the AJAX Request became challenging when I started splitting my JavaScript code into different classes that interact with each other. Because now I not only had to use axios, but also promises, so that my quiz only start when my web application has received the data from the server. I solved this by taking the tutorial content from week 4 as an example, trying to apply it to my web application and using additional resources on the internet.\
+Problem Solved?
+Yes |
+| Submit action of button in form | My implementation of the trivia web application is based on an HTML form, which I manipulate with JavaScript. I have a submit button in this form, which when clicked on the home page starts the quiz and when clicked on the final page takes the user back to the home page. To achieve this, the default submit behavior of the button had to be removed. This is because when a button element in an HTML form element is clicked, the form is automatically submitted, which causes the page to refresh and any changes that are intended by JavaScript are not executed. I have solved this by using the JavaScript in-built funtion .preventDefault() and found the solution by looking for my issue in the internet.\
+
+Problem Solved?
+Yes |
+
+---
+
 ## Task description
 You have been asked to develop a trivia web application with the following components:
 - A home page that allows the participant to enter a name
