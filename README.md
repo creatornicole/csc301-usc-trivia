@@ -87,5 +87,19 @@ Note: If you're having any issues with the server, please post the issue you're 
 </script>
 ```
 
+### Parcel
+- [Building a web app with Parcel](https://parceljs.org/getting-started/webapp/)
+- make sure that npm is installed before installing parcel
+- install parcel
+```
+npm install --save-dev parcel
+```
+- parcel has a development server built in, which will automatically rebuild your app as you make changes
+- to start run parcel CLI pointing to entry file
+```
+npx parcel src/index.html
+```
+- open http://localhost:1234/ in browser to see HTML file
+
 ### Helpful Resources
 [Yt-Tutorial: How To Make Quiz App Using JavaScript | Build Quiz App With HTML CSS & JavaScript](https://www.youtube.com/watch?v=PBcqGxrr9g8)
