@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/dwmllbUq)
 # CSC301-2024-Assignment1
 CSC301 2024 Assignment 1 - Front-end development
 
@@ -49,3 +48,44 @@ each will provide a different set of json
 `limit` (optional) - value can be an integer. Adds a cap to the amount of results returned by the API. `easy` will return a maximum of 2 results.
 
 Note: If you're having any issues with the server, please post the issue you're having in the Canvas discussion boards.
+
+### Front-End Development Rubric
+
+| Criteria                               | Best Rating/ Outstanding implementation                                                              |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Object-Oriented Programming Principles | demonstrate outstanding evidence of object-oriented design principles and programming best practices |
+| AJAX Requests                          | demonstrate outstanding evidence of an AJAX request call including error handling                    |
+| CSS Ability                            | demonstrate outstanding evidence of use of CSS structuring and capabilities                          |
+| DOM Manipulation                       | demonstrate outstanding evidence of DOM manipulation                                                 |
+| Reflective Report (500 words)          | demonstrate evidence of clear reflection including challenges and solutions                          |
+
+### File Structure
+- .\src Source Code
+    - \index.html = trivia home page
+    - \css
+        - \style.css = stylesheet for trivia home page that are used in addition to Bootstrap styles
+    - \js
+        - \fetch.js = gets data from server endpoint
+        - \main.js = js file that is added to index.html (main)
+        - manipulation.js = performs DOM manipulation
+        - pages.js = handles view of start/home page and final/score page
+        - questionCard.js = handles view of questions
+        - quiz.js = defines quiz
+        - timer.js = defines quiz timer
+
+### Implementation of Bootstrap
+- importing Bootstrap 5.3 CDN from Bootstrap website in <head> of web page
+```
+<!-- importing Bootstrap 5.3 CDN from Bootstrap website -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+      crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous">
+</script>
+```
+
+### Helpful Resources
+[Yt-Tutorial: How To Make Quiz App Using JavaScript | Build Quiz App With HTML CSS & JavaScript](https://www.youtube.com/watch?v=PBcqGxrr9g8)
