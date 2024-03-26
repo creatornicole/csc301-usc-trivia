@@ -61,6 +61,7 @@ async function handleStart() {
         try {
             quizData = await fetch(quizType);
         } catch(err) {
+            alert("Error: Quiz could not be loaded. Please check the server status and try again.");
             console.error("Error fetching quiz:", err);
         }
         
